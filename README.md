@@ -31,6 +31,10 @@ This tool is designed **ONLY** for:
 - Python 3.6 or higher
 - Required Python packages:
   - requests
+- hydra
+```bash
+sudo apt install hydra
+```
 
 ## Installation
 
@@ -38,7 +42,7 @@ This tool is designed **ONLY** for:
 2. Install the required packages:
 
 ```bash
-pip install requests
+pip install -r requirements.txt
 ```
 
 ## Usage
