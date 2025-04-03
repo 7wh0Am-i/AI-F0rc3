@@ -1,4 +1,4 @@
-# Ethical Password Wordlist Generator
+# AI-F0rc3
 
 A Python-based tool that generates custom wordlists for password brute-force testing in authorized penetration testing scenarios.
 
