@@ -65,9 +65,11 @@ pip install -r requirements.txt
 Run the script without arguments for interactive mode:
 
 ```bash
-python wordlist_generator.py
+python3 wordlist_generator.py
 ```
-
+```bash
+python3 target_wordlist_generator.py
+```
 ### Command-line Arguments
 
 ```bash
