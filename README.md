@@ -1,19 +1,29 @@
 # AI-F0rc3
 
-A Python-based tool that generates custom wordlists for password brute-force testing in authorized penetration testing scenarios.
+A Python-based toolkit for generating custom wordlists for authorized password testing, featuring both personal and target-focused approaches.
 
 ## ⚠️ Ethical Use Disclaimer
 
-This tool is designed **ONLY** for:
+This toolkit is designed **ONLY** for:
 - Ethical security testing
 - Systems you own
 - Systems you have explicit written permission to test
 
 **Unauthorized password attacks are illegal and can result in serious legal consequences.**
 
+## Available Tools
+
+### 1. wordlist_generator.py
+Generate wordlists based on personal information with optional AI integration.
+
+### 2. target_wordlist_generator.py
+Create customized wordlists specifically focused on a target entity, with options to specify password count and length.
+
 ## Features
 
-- Generates custom wordlists based on personal information
+- Two complementary approaches to wordlist generation
+- Customizable password count and length requirements
+- Generate target-specific or personal wordlists
 - Creates common password variations and combinations
 - Integrates with multiple AI APIs for creative password variations:
   - OpenAI (GPT-3.5 Turbo)
@@ -31,7 +41,8 @@ This tool is designed **ONLY** for:
 - Python 3.6 or higher
 - Required Python packages:
   - requests
-- hydra
+  - pyfiglet
+- hydra (optional for brute-force testing)
 ```bash
 sudo apt install hydra
 ```
@@ -47,7 +58,9 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Basic Usage
+### Personal Wordlist Generator
+
+#### Basic Usage
 
 Run the script without arguments for interactive mode:
 
@@ -98,6 +111,30 @@ python wordlist_generator.py --show-functions
 Using Google Gemini:
 ```bash
 python wordlist_generator.py --use-ai --api-key YOUR_GEMINI_API_KEY --api-provider gemini --output my_wordlist.txt
+```
+
+### Target Wordlist Generator
+
+The target-based generator focuses on creating wordlists based on information about a specific target entity.
+
+#### Basic Usage
+
+Run the script for interactive mode:
+
+```bash
+python target_wordlist_generator.py
+```
+
+#### Features
+
+- Specify exactly how many passwords you need in the wordlist
+- Set minimum and maximum password lengths
+- Collect specific information about your target
+- Optional organization/company information
+- Optional personal details (pet names, spouse, etc.)
+- Optional important dates
+- Creates a customized output file with timestamp
+- Prepares Hydra commands for testing
 ```
 
 Using Grok:
@@ -226,27 +263,53 @@ All operations are logged to:
 - Console output
 - `wordlist_generator.log` file
 
+## Choosing the Right Tool
+
+| Feature | wordlist_generator.py | target_wordlist_generator.py |
+|---------|----------------------|----------------------------|
+| Focus | Personal information | Target entity information |
+| AI Integration | Yes | No |
+| Password Count | Variable | User-specified exact count |
+| CLI Arguments | Extensive | None (fully interactive) |
+| Detailed Help | Yes | No |
+| Password Length | Optional constraints | Required constraints |
+| Output | All generated combinations | Limited to requested count |
+
+Choose **wordlist_generator.py** when:
+- You want to generate passwords based on information about yourself
+- You need AI-assisted creative variations
+- You prefer command-line options
+- You need extensive help documentation
+
+Choose **target_wordlist_generator.py** when:
+- You're creating a wordlist for testing a specific target
+- You need a specific number of passwords
+- You want to include company/organization information
+- You prefer a guided interactive process
+
+## Advanced Usage Tips
+
+1. **Optimizing Wordlist Size**:
+   - Use length constraints to keep wordlists manageable
+   - For target_wordlist_generator, specify only the number of passwords you need
+
+2. **Effective Target Profiling**:
+   - Collect as much relevant information as possible
+   - Include variations of company names and abbreviations
+   - Consider interests and hobbies that might influence password choices
+
+3. **Hydra Testing Best Practices**:
+   - Use the `-t 4` flag (already included) to limit concurrent attempts
+   - Monitor logs carefully to avoid account lockouts
+   - Always have explicit permission before testing
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
 ## License
 
-Copyright (c) 2025 ANIMESH PANNA 
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This project is licensed under the terms of the MIT license.
 
 <h2>⚡️ Where to find me</h2>
 <p><a target="_blank" href="https://twitter.com/@AnimeshPanna" style="display: inline-block;"><img src="https://img.shields.io/badge/twitter-x?style=for-the-badge&logo=x&logoColor=white&color=%230f1419" alt="twitter" /></a>
@@ -258,4 +321,4 @@ SOFTWARE.
 
 ---
 
-Remember: Security testing without explicit authorization is illegal and unethical. 
+Remember: Security testing without explicit authorization is illegal and unethical.
